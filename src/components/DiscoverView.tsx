@@ -7,6 +7,7 @@ import { changeClass, fmtAge, fmtNum, fmtPct, fmtPrice, fmtUsd } from "@/lib/for
 import type { Category, RegistryToken, TokenListItem } from "@/lib/types";
 import { Sparkline } from "./Sparkline";
 import { TokenLogo } from "./TokenLogo";
+import { ComingSoon } from "./Social";
 import { VoteButton } from "./VoteButton";
 
 type SortKey = "legend" | "votes" | "volume" | "liquidity" | "activity" | "oldest";
@@ -120,6 +121,7 @@ export function DiscoverView({
       <ul className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
         {!data && !error && Array.from({ length: 6 }).map((_, i) => <li key={i} className="panel h-[230px] animate-pulse" />)}
         {items.map((i) => <Card key={i.token.mint} item={i} onVoted={() => void reload()} />)}
+        {data && <ComingSoon variant="card" />}
       </ul>
       {data && items.length === 0 && (
         <p className="panel mt-6 p-6 text-sm text-bone-dim">

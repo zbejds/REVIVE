@@ -7,6 +7,7 @@ import { changeClass, fmtPct, fmtPrice, fmtUsd } from "@/lib/format";
 import type { TokenListItem, VoteWindow } from "@/lib/types";
 import { Sparkline } from "./Sparkline";
 import { TokenLogo } from "./TokenLogo";
+import { ComingSoon } from "./Social";
 import { VoteButton } from "./VoteButton";
 
 interface ListResponse {
@@ -121,6 +122,7 @@ export function Leaderboard() {
           ))}
         </ul>
       </div>
+      <ComingSoon />
       {data && (
         <p className="label mt-2 text-right normal-case tracking-normal">
           Market data via DexScreener · refreshes every 30s

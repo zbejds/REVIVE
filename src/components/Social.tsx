@@ -83,3 +83,53 @@ export function RevivePill({ compact = false }: { compact?: boolean }) {
     </div>
   );
 }
+
+/** "More legends coming soon" teaser, as a wide strip or as a grid card. */
+export function ComingSoon({ variant = "strip" }: { variant?: "strip" | "card" }) {
+  const ghosts = ["?", "?", "?"];
+  const stack = (
+    <span className="flex -space-x-2" aria-hidden="true">
+      {ghosts.map((g, i) => (
+        <span
+          key={i}
+          className="grid h-9 w-9 place-items-center rounded-full border border-dashed border-pulse/50 bg-pulse/10 font-display text-xs font-bold text-pulse"
+        >
+          {g}
+        </span>
+      ))}
+    </span>
+  );
+  const suggest = (
+    <a
+      href={X_URL}
+      target="_blank"
+      rel="noreferrer"
+      className="inline-flex items-center gap-1.5 rounded-full border border-white/10 px-3 py-1.5 text-xs text-bone transition hover:border-white/25 hover:bg-white/[0.06]"
+    >
+      <XIcon className="h-3.5 w-3.5" /> Suggest a coin
+    </a>
+  );
+
+  if (variant === "card") {
+    return (
+      <li className="flex min-h-[230px] flex-col items-center justify-center gap-3 rounded-[22px] border border-dashed border-pulse/40 bg-pulse/[0.04] p-6 text-center">
+        {stack}
+        <p className="font-display text-lg font-bold">More legends coming soon</p>
+        <p className="max-w-[260px] text-sm text-bone-dim">New forgotten Solana memecoins join the archive regularly. Tell us which one to revive next.</p>
+        {suggest}
+      </li>
+    );
+  }
+  return (
+    <div className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-[22px] border border-dashed border-pulse/40 bg-pulse/[0.04] px-5 py-4">
+      <div className="flex items-center gap-3">
+        {stack}
+        <div>
+          <p className="font-display text-base font-bold">More legends coming soon</p>
+          <p className="text-xs text-bone-dim">New forgotten Solana memecoins join the board regularly.</p>
+        </div>
+      </div>
+      {suggest}
+    </div>
+  );
+}
