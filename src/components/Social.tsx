@@ -48,7 +48,7 @@ export function RevivePill({ compact = false }: { compact?: boolean }) {
 
   return (
     <div
-      className={`flex max-w-full flex-wrap items-center gap-2 rounded-2xl border border-white/10 bg-black/40 backdrop-blur-md ${
+      className={`flex w-fit max-w-full flex-wrap items-center gap-2 rounded-2xl border border-white/10 bg-black/40 backdrop-blur-md ${
         compact ? "px-3 py-1.5" : "px-4 py-2.5"
       }`}
     >
