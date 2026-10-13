@@ -23,7 +23,7 @@ export const features = {
   customRpc: Boolean(process.env.SOLANA_RPC_URL) && !env.rpcUrl.includes("api.mainnet-beta.solana.com"),
 };
 
-/** Platform fee actually charged by REVIVE (0 unless a valid referral is configured). */
+/** Platform fee actually charged by ENCORE (0 unless a valid referral is configured). */
 export const platformFeeBps =
   env.jupiterReferralAccount && env.jupiterReferralFeeBps >= 50 && env.jupiterReferralFeeBps <= 255
     ? env.jupiterReferralFeeBps

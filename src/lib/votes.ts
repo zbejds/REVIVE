@@ -62,7 +62,7 @@ export function syncRegistry(): Promise<void> {
   return registrySynced ?? Promise.resolve();
 }
 
-/** Vote counts and REVIVE rank for every listed token. Ranking uses votes only. */
+/** Vote counts and ENCORE rank for every listed token. Ranking uses votes only. */
 export async function getVoteTable(window: VoteWindow): Promise<Map<string, VoteStats> | null> {
   const pool = db();
   if (!pool) return null;
@@ -146,15 +146,15 @@ export async function issueChallenge(wallet: string, mint: string) {
   if (!pool) throw new VoteError(503, "Voting is offline: the database is not configured.", "offline");
   if (!isPubkey(wallet)) throw new VoteError(400, "That is not a valid Solana wallet address.", "bad_wallet");
   const token = getToken(mint);
-  if (!token || !isListedMint(mint)) throw new VoteError(404, "This token is not listed on REVIVE.", "not_listed");
+  if (!token || !isListedMint(mint)) throw new VoteError(404, "This token is not listed on ENCORE.", "not_listed");
 
   const nonce = bs58.encode(randomBytes(18));
   const issued = new Date();
   const expires = new Date(issued.getTime() + VOTE_RULES.nonceTtlMinutes * 60_000);
   const message = [
-    "REVIVE community vote",
+    "ENCORE community vote",
     "",
-    `I am voting to revive ${token.symbol}.`,
+    `I am calling ${token.symbol} back for an encore.`,
     `Token mint: ${mint}`,
     `Wallet: ${wallet}`,
     `Nonce: ${nonce}`,
@@ -183,7 +183,7 @@ export async function castVote(input: { wallet: string; mint: string; nonce: str
   if (!db()) throw new VoteError(503, "Voting is offline: the database is not configured.", "offline");
   const { wallet, mint, nonce, signature } = input;
   if (!isPubkey(wallet)) throw new VoteError(400, "Invalid wallet address.", "bad_wallet");
-  if (!isListedMint(mint)) throw new VoteError(404, "This token is not listed on REVIVE.", "not_listed");
+  if (!isListedMint(mint)) throw new VoteError(404, "This token is not listed on ENCORE.", "not_listed");
   const ipHash = hashIp(input.ip);
 
   // Anti-sybil balance check happens before the transaction (network call).

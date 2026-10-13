@@ -56,7 +56,7 @@ export function usePoll<T>(url: string | null, intervalMs: number) {
   return { data, error, loading, reload: load };
 }
 
-/** Minimal JSON-RPC call through REVIVE's server proxy. */
+/** Minimal JSON-RPC call through ENCORE's server proxy. */
 export async function rpcCall<T>(method: string, params: unknown[]): Promise<T> {
   const res = await fetch("/api/rpc", {
     method: "POST",

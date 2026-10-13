@@ -1,8 +1,8 @@
 {
-  "name": "revive",
+  "name": "encore",
   "version": "0.1.0",
   "private": true,
-  "description": "REVIVE — Solana memecoin discovery, voting and trading. The memes never die.",
+  "description": "ENCORE — Solana memecoin discovery, voting and trading. The memes never die.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

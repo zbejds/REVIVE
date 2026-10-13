@@ -12,8 +12,8 @@ const config: Config = {
         line: { DEFAULT: "#2A2D3A", strong: "#3A3E50" },
         bone: { DEFAULT: "#ECE5D6", dim: "#B9B3A6" },
         muted: "#8B8898",
-        pulse: { DEFAULT: "#B9A4FF", deep: "#7D62F0", ink: "#1B1530" },
-        ember: { DEFAULT: "#FFB86B", deep: "#E8893A" },
+        pulse: { DEFAULT: "#FF4FA3", deep: "#D61F7C", ink: "#2B0718" },
+        ember: { DEFAULT: "#FFE14D", deep: "#F2B705" },
         up: "#4FD1A5",
         down: "#F2667A",
         warn: "#F5C451",
@@ -24,13 +24,17 @@ const config: Config = {
         mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
       },
       boxShadow: {
-        glow: "0 0 0 1px rgba(185,164,255,.35), 0 8px 30px -8px rgba(125,98,240,.45)",
+        glow: "0 0 0 1px rgba(255,79,163,.35), 0 8px 30px -8px rgba(255,79,163,.45)",
       },
       keyframes: {
         beat: {
           "0%,100%": { transform: "scale(1)" },
           "30%": { transform: "scale(1.18)" },
           "45%": { transform: "scale(.96)" },
+        },
+        "spin-once": {
+          from: { transform: "rotate(-180deg)", opacity: "0" },
+          to: { transform: "rotate(0deg)", opacity: "1" },
         },
         trace: {
           from: { strokeDashoffset: "240" },

@@ -8,12 +8,12 @@ const JUP = "https://api.jup.ag/swap/v2";
 
 /**
  * Proxies Jupiter Swap V2 /order. The API key stays on the server.
- * Only SOL <-> listed REVIVE token pairs are allowed.
+ * Only SOL <-> listed ENCORE token pairs are allowed.
  * Without `taker` Jupiter returns a quote only (no transaction).
  */
 export async function GET(req: Request) {
   if (!features.trading)
-    return json({ error: "Trading is not configured on this REVIVE deployment.", code: "trading_offline" }, { status: 503 });
+    return json({ error: "Trading is not configured on this ENCORE deployment.", code: "trading_offline" }, { status: 503 });
   if (!allow(`order:${clientIp(req) ?? "anon"}`, 60))
     return json({ error: "Too many quote requests. Slow down a little.", code: "rate_limited" }, { status: 429 });
 
@@ -26,7 +26,7 @@ export async function GET(req: Request) {
 
   const tokenSide = inputMint === SOL_MINT ? outputMint : outputMint === SOL_MINT ? inputMint : null;
   if (!tokenSide || !isListedMint(tokenSide))
-    return json({ error: "REVIVE only routes SOL to listed tokens and back.", code: "pair_not_allowed" }, { status: 400 });
+    return json({ error: "ENCORE only routes SOL to listed tokens and back.", code: "pair_not_allowed" }, { status: 400 });
   if (!/^\d{1,20}$/.test(amount) || BigInt(amount) <= BigInt(0))
     return json({ error: "Enter an amount greater than zero.", code: "bad_amount" }, { status: 400 });
   if (taker && !isValidMint(taker)) return json({ error: "Invalid wallet address.", code: "bad_taker" }, { status: 400 });
@@ -91,6 +91,6 @@ export async function GET(req: Request) {
     routePlan: pick("routePlan"),
     errorCode: pick("errorCode"),
     errorMessage: pick("errorMessage"),
-    revivePlatformFeeBps: platformFeeBps,
+    encorePlatformFeeBps: platformFeeBps,
   });
 }

@@ -62,7 +62,7 @@ export function VoteButton({
   }
 
   const busy = state === "signing" || state === "sending";
-  const label = state === "signing" ? "Sign in Phantom…" : state === "sending" ? "Counting…" : state === "done" ? "Revived" : "Revive";
+  const label = state === "signing" ? "Sign in Phantom…" : state === "sending" ? "Counting…" : state === "done" ? "Encored" : "Revive";
 
   return (
     <div className={size === "lg" ? "flex flex-col items-stretch gap-1.5" : "inline-flex flex-col items-end gap-1"}>
@@ -70,7 +70,7 @@ export function VoteButton({
         type="button"
         onClick={vote}
         disabled={busy || !!offline}
-        title={offline ? "Voting is offline on this deployment" : `Vote to revive ${symbol}`}
+        title={offline ? "Voting is offline on this deployment" : `Call ${symbol} back for an encore`}
         className={`${state === "done" ? "btn-ghost text-pulse" : "btn-ember"} ${size === "lg" ? "px-5 py-2.5 text-[15px]" : "px-3 py-1.5 text-xs"}`}
       >
         <span key={beat} className={beat ? "inline-block animate-beat" : "inline-block"} aria-hidden="true">

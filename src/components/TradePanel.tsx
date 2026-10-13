@@ -30,7 +30,7 @@ interface Order {
   routePlan?: { swapInfo?: { label?: string }; percent?: number }[];
   errorCode?: number;
   errorMessage?: string;
-  revivePlatformFeeBps: number;
+  encorePlatformFeeBps: number;
 }
 
 type Phase = "form" | "review" | "preparing" | "signing" | "submitting" | "confirming" | "success" | "failed";
@@ -292,7 +292,7 @@ export function TradePanel({
 
       {venue === "pumpfun-curve" && (
         <p className="mt-3 rounded-lg border border-ember/30 bg-ember/[0.07] px-3 py-2 text-xs leading-snug text-ember">
-          This token&apos;s deepest pool is still a pump.fun bonding curve. REVIVE trades it only when Jupiter returns a valid route.
+          This token&apos;s deepest pool is still a pump.fun bonding curve. ENCORE trades it only when Jupiter returns a valid route.
         </p>
       )}
       {!market && (
@@ -419,7 +419,7 @@ export function TradePanel({
             <Line k="Slippage" v={slip === "auto" ? "Auto (Jupiter)" : `${(slip / 100).toFixed(2)}%`} />
             <Line k="Route" v={[reviewed.router, ...(routeLabels ?? [])].filter(Boolean).join(" → ") || "Jupiter"} />
             <Line k="Jupiter fee" v={reviewed.feeBps != null ? `${(reviewed.feeBps / 100).toFixed(2)}%` : "Included in quote"} />
-            <Line k="REVIVE fee" v={reviewed.revivePlatformFeeBps ? `${(reviewed.revivePlatformFeeBps / 100).toFixed(2)}%` : "None"} />
+            <Line k="ENCORE fee" v={reviewed.encorePlatformFeeBps ? `${(reviewed.encorePlatformFeeBps / 100).toFixed(2)}%` : "None"} />
             <Line k="Network fee" v={networkLamports != null ? `${fmtNum(networkLamports / 1e9, 6)} SOL` : "~0.000005 SOL + priority fee"} />
           </dl>
           {(reviewed.rentFeeLamports ?? 0) > 0 && (
@@ -564,7 +564,7 @@ function QuoteBox(p: {
       <Line k="You receive (est.)" v={p.outNum != null ? `${fmtNum(p.outNum, 6)} ${p.outSym}` : "—"} strong />
       <Line k="Minimum received" v={p.minOut != null ? `${fmtNum(p.minOut, 6)} ${p.outSym}` : p.auto ? "Auto (set by Jupiter)" : "—"} />
       <Line k="Price impact (est.)" v={p.impact != null ? `${p.impact.toFixed(2)}%` : "—"} tone={p.impactLevel === "ok" ? undefined : p.impactLevel === "high" ? "warn" : "down"} />
-      <Line k="Fees" v={`Jupiter ${p.order.feeBps != null ? (p.order.feeBps / 100).toFixed(2) + "%" : "incl."} · REVIVE ${p.order.revivePlatformFeeBps ? (p.order.revivePlatformFeeBps / 100).toFixed(2) + "%" : "none"}`} />
+      <Line k="Fees" v={`Jupiter ${p.order.feeBps != null ? (p.order.feeBps / 100).toFixed(2) + "%" : "incl."} · ENCORE ${p.order.encorePlatformFeeBps ? (p.order.encorePlatformFeeBps / 100).toFixed(2) + "%" : "none"}`} />
       <Line k="Network" v={p.networkLamports != null ? `${fmtNum(p.networkLamports / 1e9, 6)} SOL` : "~0.000005 SOL + priority"} />
       {p.routeLabels && p.routeLabels.length > 0 && <Line k="Route" v={p.routeLabels.join(" → ")} />}
       {p.impactLevel !== "ok" && (

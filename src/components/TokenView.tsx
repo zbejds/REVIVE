@@ -107,7 +107,7 @@ function TokenHeader({
       <img
         src="/art/sphere.webp"
         alt=""
-        className="pointer-events-none absolute -right-24 -top-10 h-[130%] w-auto max-w-none opacity-35 sm:-right-10 lg:opacity-45"
+        className="brand-tint pointer-events-none absolute -right-24 -top-10 h-[130%] w-auto max-w-none opacity-35 sm:-right-10 lg:opacity-45"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-ink/95 via-ink/70 to-transparent" />
       <div className="relative flex min-w-0 items-start gap-4">
@@ -166,7 +166,7 @@ function TokenHeader({
         </div>
         <div className="flex items-end gap-4">
           <div className="text-right">
-            <p className="label">REVIVE rank · 24h</p>
+            <p className="label">ENCORE rank · 24h</p>
             <p className="num text-xl font-bold text-pulse">{data?.votes ? (rank ? `#${rank}` : "Unranked") : "—"}</p>
             <p className="num text-[11px] text-muted">{allVotes != null ? `${allVotes.toLocaleString()} votes all-time` : "Voting offline"}</p>
           </div>
@@ -202,7 +202,7 @@ function MarketStats({ m, loading }: { m: MarketData | null; loading: boolean })
           </div>
         ))}
       </dl>
-      <p className="mt-2 text-[11px] text-muted">Unique trader counts aren&apos;t provided by our free data sources, so REVIVE doesn&apos;t show them.</p>
+      <p className="mt-2 text-[11px] text-muted">Unique trader counts aren&apos;t provided by our free data sources, so ENCORE doesn&apos;t show them.</p>
     </section>
   );
 }

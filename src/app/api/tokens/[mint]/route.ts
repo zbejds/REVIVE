@@ -10,7 +10,7 @@ export async function GET(_req: Request, ctx: { params: Promise<{ mint: string }
   try {
     const { mint } = await ctx.params;
     const token = getToken(mint);
-    if (!token || !isListedMint(mint)) return json({ error: "Token not listed on REVIVE." }, { status: 404 });
+    if (!token || !isListedMint(mint)) return json({ error: "Token not listed on ENCORE." }, { status: 404 });
 
     const [market, decimals, table24, tableAll, community] = await Promise.all([
       getMarket(mint),

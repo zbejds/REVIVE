@@ -3,7 +3,7 @@ import "server-only";
 /**
  * Small in-process TTL cache with request coalescing and stale-on-error.
  * On serverless hosts each instance has its own cache; that is fine for
- * respecting provider limits at REVIVE's scale. Swap for Redis/KV when needed.
+ * respecting provider limits at ENCORE's scale. Swap for Redis/KV when needed.
  */
 interface Entry<T> {
   value: T;
@@ -45,7 +45,7 @@ export async function cached<T>(
   }
 }
 
-/** Token bucket per provider, so REVIVE stays under documented rate limits. */
+/** Token bucket per provider, so ENCORE stays under documented rate limits. */
 class Bucket {
   private tokens: number;
   private last = Date.now();

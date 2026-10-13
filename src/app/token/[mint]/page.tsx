@@ -22,7 +22,7 @@ export default async function TokenPage({ params }: Props) {
       <div className="mx-auto mt-16 max-w-xl text-center">
         <p className="label">In the vault</p>
         <h1 className="mt-2 font-display text-3xl font-black">{token.symbol} isn&apos;t listed</h1>
-        <p className="mt-3 text-bone-dim">{token.notListedReason ?? "This token is not part of the REVIVE market."}</p>
+        <p className="mt-3 text-bone-dim">{token.notListedReason ?? "This token is not part of the ENCORE market."}</p>
         <Link href="/discover" className="btn-ghost mt-6">Back to the archive</Link>
       </div>
     );

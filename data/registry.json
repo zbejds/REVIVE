@@ -1,5 +1,5 @@
 {
-  "_about": "REVIVE token registry. Every listed token is keyed by its Solana mint address. 'listed: true' tokens appear in the REVIVE market; everything else is shown in the archive with the reason it is not tradable here. launchPlatform is only set where it is well documented; null renders as 'Unverified'. Market data, token age and pools always come from live providers, never from this file.",
+  "_about": "ENCORE token registry. Every listed token is keyed by its Solana mint address. 'listed: true' tokens appear in the ENCORE market; everything else is shown in the archive with the reason it is not tradable here. launchPlatform is only set where it is well documented; null renders as 'Unverified'. Market data, token age and pools always come from live providers, never from this file.",
   "categories": [
     {
       "id": "early",
@@ -399,7 +399,7 @@
       ],
       "legendRank": 16,
       "blurb": "Famous for a launch-day mistake that burned its own presale and LP tokens.",
-      "notListedReason": "SLERF migrated to a new token in September 2025. This is the old mint. REVIVE has not yet verified the new mint, so it is not listed for voting or trading."
+      "notListedReason": "SLERF migrated to a new token in September 2025. This is the old mint. ENCORE has not yet verified the new mint, so it is not listed for voting or trading."
     }
   ],
   "otherChains": [

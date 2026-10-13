@@ -59,8 +59,8 @@ export function PriceChart({ mint, symbol, compact = false }: { mint: string; sy
       grid: { vertLines: { color: "rgba(42,45,58,.55)" }, horzLines: { color: "rgba(42,45,58,.55)" } },
       crosshair: {
         mode: CrosshairMode.Normal,
-        vertLine: { color: "rgba(185,164,255,.5)", labelBackgroundColor: "#7D62F0" },
-        horzLine: { color: "rgba(185,164,255,.5)", labelBackgroundColor: "#7D62F0" },
+        vertLine: { color: "rgba(255,79,163,.5)", labelBackgroundColor: "#D61F7C" },
+        horzLine: { color: "rgba(255,79,163,.5)", labelBackgroundColor: "#D61F7C" },
       },
       rightPriceScale: { borderColor: "#2A2D3A", scaleMargins: { top: 0.08, bottom: 0.26 } },
       timeScale: { borderColor: "#2A2D3A", timeVisible: true, secondsVisible: false, rightOffset: 6 },
@@ -70,7 +70,7 @@ export function PriceChart({ mint, symbol, compact = false }: { mint: string; sy
     candleRef.current = chart.addSeries(CandlestickSeries, {
       upColor: UP, downColor: DOWN, borderUpColor: UP, borderDownColor: DOWN, wickUpColor: UP, wickDownColor: DOWN, priceFormat,
     });
-    lineRef.current = chart.addSeries(LineSeries, { color: "#B9A4FF", lineWidth: 2, priceFormat, visible: false });
+    lineRef.current = chart.addSeries(LineSeries, { color: "#FF4FA3", lineWidth: 2, priceFormat, visible: false });
     volRef.current = chart.addSeries(HistogramSeries, { priceFormat: { type: "volume" }, priceScaleId: "vol", lastValueVisible: false, priceLineVisible: false });
     chart.priceScale("vol").applyOptions({ scaleMargins: { top: 0.8, bottom: 0 } });
 

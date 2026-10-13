@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { X_HANDLE, X_URL } from "@/lib/site";
 import { Pulse } from "./Logo";
-import { RevivePill, XIcon } from "./Social";
+import { EncorePill, XIcon } from "./Social";
 
 export function Footer() {
   return (
@@ -10,18 +10,20 @@ export function Footer() {
         <div className="flex flex-wrap items-center justify-between gap-3">
           <p className="flex items-center gap-2">
             <Pulse className="h-5 w-5" />
-            <span className="font-display font-bold text-bone-dim">REVIVE</span> — Bring the legends back.
+            <span className="font-display font-bold text-bone-dim">ENCORE</span> — Every legend gets an encore.
           </p>
           <div className="flex flex-wrap items-center gap-3">
-            <RevivePill compact />
-            <a
-              href={X_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-full border border-white/10 px-3 py-1.5 text-bone-dim transition hover:border-white/25 hover:text-bone"
-            >
-              <XIcon className="h-3.5 w-3.5" /> {X_HANDLE}
-            </a>
+            <EncorePill compact />
+            {X_URL && (
+              <a
+                href={X_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full border border-white/10 px-3 py-1.5 text-bone-dim transition hover:border-white/25 hover:text-bone"
+              >
+                <XIcon className="h-3.5 w-3.5" /> {X_HANDLE}
+              </a>
+            )}
           </div>
         </div>
         <p className="max-w-3xl leading-relaxed">

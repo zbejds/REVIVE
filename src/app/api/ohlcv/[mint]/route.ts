@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 export async function GET(req: Request, ctx: { params: Promise<{ mint: string }> }) {
   try {
     const { mint } = await ctx.params;
-    if (!isListedMint(mint)) return json({ error: "Token not listed on REVIVE." }, { status: 404 });
+    if (!isListedMint(mint)) return json({ error: "Token not listed on ENCORE." }, { status: 404 });
     if (!allow(`ohlcv:${clientIp(req) ?? "anon"}`, 90)) return json({ error: "Too many chart requests." }, { status: 429 });
 
     const sp = new URL(req.url).searchParams;

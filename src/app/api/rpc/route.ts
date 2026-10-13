@@ -5,7 +5,7 @@ export const dynamic = "force-dynamic";
 
 /**
  * Read-mostly Solana RPC proxy so a private RPC key never reaches the browser.
- * Only the methods REVIVE's UI needs are allowed. Sending transactions goes
+ * Only the methods ENCORE's UI needs are allowed. Sending transactions goes
  * through Jupiter /execute, not here.
  */
 const ALLOWED = new Set([

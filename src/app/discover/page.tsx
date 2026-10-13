@@ -9,7 +9,7 @@ export default function DiscoverPage() {
     <div className="mt-6">
       <div className="ring-grad relative overflow-hidden rounded-[32px] border border-white/[0.06]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/art/discs.webp" alt="" className="absolute inset-0 h-full w-full object-cover opacity-80" />
+        <img src="/art/discs.webp" alt="" className="brand-tint absolute inset-0 h-full w-full object-cover opacity-80" />
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/75 to-ink/10" />
         <div className="relative px-6 py-12 sm:px-10 sm:py-16">
           <p className="chip w-fit">The archive</p>

@@ -46,7 +46,7 @@ export function Leaderboard() {
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <h2 id="lb-title" className="font-display text-2xl font-bold tracking-tight sm:text-3xl">
-            Revival leaderboard
+            Encore leaderboard
           </h2>
           <p className="mt-1 max-w-xl text-sm text-bone-dim">
             Ranked by community votes only. Price doesn&apos;t move a coin up this list; people do.
@@ -81,12 +81,12 @@ export function Leaderboard() {
       )}
 
       {podium.length > 0 && (
-        <ol className="mt-6 grid gap-3 sm:grid-cols-3" aria-label="Top revived">
+        <ol className="mt-6 grid gap-3 sm:grid-cols-3" aria-label="Top encores">
           {podium.map((r) => (
             <li key={r.token.mint}>
               <Link
                 href={`/token/${r.token.mint}`}
-                className="panel ring-grad group flex items-center gap-3 p-5 transition hover:-translate-y-0.5 hover:shadow-[0_20px_50px_-20px_rgba(159,134,255,.55)]"
+                className="panel ring-grad group flex items-center gap-3 p-5 transition hover:-translate-y-0.5 hover:shadow-[0_20px_50px_-20px_rgba(255,79,163,.5)]"
               >
                 <span className="grad-text font-display text-4xl font-black">{r.votes?.rank}</span>
                 <TokenLogo src={r.market?.imageUrl} symbol={r.token.symbol} size={40} />

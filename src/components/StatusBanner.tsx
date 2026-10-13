@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useHealth } from "./Providers";
 
-/** Tells users plainly which parts of REVIVE are offline on this deployment. */
+/** Tells users plainly which parts of ENCORE are offline on this deployment. */
 export function StatusBanner() {
   const h = useHealth();
   if (!h || (h.voting && h.trading)) return null;

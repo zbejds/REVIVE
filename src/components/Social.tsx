@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { REVIVE_CA, X_HANDLE, X_URL } from "@/lib/site";
+import { ENCORE_CA, X_HANDLE, X_URL } from "@/lib/site";
 
 export function XIcon({ className = "h-4 w-4" }: { className?: string }) {
   return (
@@ -13,12 +13,13 @@ export function XIcon({ className = "h-4 w-4" }: { className?: string }) {
 
 /** Round X button for the header. */
 export function XButton() {
+  if (!X_URL) return null;
   return (
     <a
       href={X_URL}
       target="_blank"
       rel="noreferrer"
-      aria-label={`REVIVE on X (${X_HANDLE})`}
+      aria-label={`ENCORE on X (${X_HANDLE})`}
       title={`Follow ${X_HANDLE} on X`}
       className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-white/10 bg-white/[0.04] text-bone transition hover:border-white/25 hover:bg-white/[0.1]"
     >
@@ -28,12 +29,12 @@ export function XButton() {
 }
 
 /**
- * $REVIVE contract address pill. While REVIVE_CA is empty it shows
+ * $ENCORE contract address pill. While ENCORE_CA is empty it shows
  * "Coming soon"; once set it shows the address with copy + trade links.
  */
-export function RevivePill({ compact = false }: { compact?: boolean }) {
+export function EncorePill({ compact = false }: { compact?: boolean }) {
   const [copied, setCopied] = useState(false);
-  const ca = REVIVE_CA.trim();
+  const ca = ENCORE_CA.trim();
 
   function copy() {
     if (!ca) return;
@@ -52,7 +53,7 @@ export function RevivePill({ compact = false }: { compact?: boolean }) {
         compact ? "px-3 py-1.5" : "px-4 py-2.5"
       }`}
     >
-      <span className="grad-text font-display text-sm font-black">$REVIVE</span>
+      <span className="grad-text font-display text-sm font-black">$ENCORE</span>
       <span className="label text-[10px]">CA</span>
       {ca ? (
         <>
@@ -109,7 +110,7 @@ export function ComingSoon({ variant = "strip" }: { variant?: "strip" | "card" }
       ))}
     </span>
   );
-  const suggest = (
+  const suggest = X_URL ? (
     <a
       href={X_URL}
       target="_blank"
@@ -118,14 +119,14 @@ export function ComingSoon({ variant = "strip" }: { variant?: "strip" | "card" }
     >
       <XIcon className="h-3.5 w-3.5" /> Suggest a coin
     </a>
-  );
+  ) : null;
 
   if (variant === "card") {
     return (
       <li className="flex min-h-[230px] flex-col items-center justify-center gap-3 rounded-[22px] border border-dashed border-pulse/40 bg-pulse/[0.04] p-6 text-center">
         {stack}
         <p className="font-display text-lg font-bold">More legends coming soon</p>
-        <p className="max-w-[260px] text-sm text-bone-dim">New forgotten Solana memecoins join the archive regularly. Tell us which one to revive next.</p>
+        <p className="max-w-[260px] text-sm text-bone-dim">New forgotten Solana memecoins join the archive regularly. Vote for the ones you want back next.</p>
         {suggest}
       </li>
     );

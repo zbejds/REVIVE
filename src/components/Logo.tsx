@@ -1,46 +1,34 @@
 /**
- * The REVIVE mark ("Bloom pulse"): a flat heartbeat line that spikes and
- * blooms into a flower — the same idea as the hero artwork.
+ * The ENCORE mark: a replay arrow (one more time) circling a spotlight star.
  */
-const PETAL = "M32 24C28.2 18.6 28.6 11 32 6.5C35.4 11 35.8 18.6 32 24Z";
-
 export function Mark({ className = "", animate = false }: { className?: string; animate?: boolean }) {
   // Same gradients everywhere, so shared ids are safe even if the mark appears twice.
   return (
-    <svg viewBox="6 2 52 50" className={className} fill="none" aria-hidden="true">
+    <svg viewBox="0 0 48 48" className={className} fill="none" aria-hidden="true">
       <defs>
-        <linearGradient id="rv-line" x1="12" y1="54" x2="52" y2="10" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="#7D62F0" />
-          <stop offset=".55" stopColor="#C4B2FF" />
-          <stop offset="1" stopColor="#FFB86B" />
+        <linearGradient id="en-arc" x1="8" y1="40" x2="40" y2="8" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#D61F7C" />
+          <stop offset=".5" stopColor="#FF4FA3" />
+          <stop offset="1" stopColor="#FFE14D" />
         </linearGradient>
-        <linearGradient id="rv-petal" x1="32" y1="26" x2="32" y2="4" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="#FFC98A" />
-          <stop offset=".45" stopColor="#D9CBFF" />
-          <stop offset="1" stopColor="#9F86FF" />
+        <linearGradient id="en-star" x1="24" y1="15" x2="24" y2="33" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#FFF6B8" />
+          <stop offset="1" stopColor="#FFE14D" />
         </linearGradient>
-        <radialGradient id="rv-glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(32 20) scale(16)">
-          <stop offset="0" stopColor="#FFB86B" stopOpacity=".55" />
-          <stop offset=".5" stopColor="#B9A4FF" stopOpacity=".18" />
-          <stop offset="1" stopColor="#B9A4FF" stopOpacity="0" />
+        <radialGradient id="en-glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(24 24) scale(12)">
+          <stop offset="0" stopColor="#FFE14D" stopOpacity=".55" />
+          <stop offset=".6" stopColor="#FF4FA3" stopOpacity=".15" />
+          <stop offset="1" stopColor="#FF4FA3" stopOpacity="0" />
         </radialGradient>
       </defs>
-      <circle cx="32" cy="20" r="16" fill="url(#rv-glow)" />
-      <g fill="url(#rv-petal)">
-        <path d={PETAL} transform="rotate(-52 32 24)" opacity=".75" />
-        <path d={PETAL} transform="rotate(52 32 24)" opacity=".75" />
-        <path d={PETAL} transform="rotate(-24 32 24)" opacity=".9" />
-        <path d={PETAL} transform="rotate(24 32 24)" opacity=".9" />
-        <path d={PETAL} />
+      <circle cx="24" cy="24" r="12" fill="url(#en-glow)" />
+      <g className={animate ? "origin-center animate-[spin-once_1.2s_ease-out_1]" : undefined} style={{ transformBox: "fill-box" }}>
+        <path d="M39.5 24A15.5 15.5 0 1 1 32 10.6" stroke="url(#en-arc)" strokeWidth="3.6" strokeLinecap="round" />
+        <path d="M31.4 5.2L35 12.3L27.1 12.9" stroke="url(#en-arc)" strokeWidth="3.6" strokeLinecap="round" strokeLinejoin="round" />
       </g>
       <path
-        d="M8 42h13l3.5-5 4.5 11 3-24 4 20 2.5-2H56"
-        stroke="url(#rv-line)"
-        strokeWidth="3.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeDasharray={animate ? 120 : undefined}
-        className={animate ? "animate-trace" : undefined}
+        d="M24 15.5C24.8 21.2 26.8 23.2 32.5 24C26.8 24.8 24.8 26.8 24 32.5C23.2 26.8 21.2 24.8 15.5 24C21.2 23.2 23.2 21.2 24 15.5Z"
+        fill="url(#en-star)"
       />
     </svg>
   );
@@ -55,7 +43,7 @@ export function Logo() {
   return (
     <span className="flex items-center gap-2">
       <Mark className="h-9 w-9" animate />
-      <span className="font-display text-[18px] font-black tracking-[0.06em] text-bone">REVIVE</span>
+      <span className="font-display text-[18px] font-black tracking-[0.06em] text-bone">ENCORE</span>
     </span>
   );
 }

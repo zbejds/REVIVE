@@ -16,7 +16,7 @@ function HealthProvider({ children }: { children: ReactNode }) {
 }
 
 export function Providers({ children }: { children: ReactNode }) {
-  // The browser talks to Solana only through REVIVE's /api/rpc proxy,
+  // The browser talks to Solana only through ENCORE's /api/rpc proxy,
   // so a private RPC key never ships to the client.
   const endpoint = useMemo(
     () => (typeof window !== "undefined" ? `${window.location.origin}/api/rpc` : "http://localhost:3000/api/rpc"),

@@ -125,14 +125,14 @@ export function DiscoverView({
       </ul>
       {data && items.length === 0 && (
         <p className="panel mt-6 p-6 text-sm text-bone-dim">
-          No listed token matches. REVIVE only lists tokens by verified mint, so unknown or look-alike tickers won&apos;t show up here.
+          No listed token matches. ENCORE only lists tokens by verified mint, so unknown or look-alike tickers won&apos;t show up here.
         </p>
       )}
 
       <section className="mt-14" aria-labelledby="vault-title">
         <h2 id="vault-title" className="font-display text-xl font-bold">The vault</h2>
         <p className="mt-1 max-w-2xl text-sm text-bone-dim">
-          Part of meme history, but not in the REVIVE market. Each one says why.
+          Part of meme history, but not in the ENCORE market. Each one says why.
         </p>
         <ul className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
           {archived.map((t) => (
@@ -153,7 +153,7 @@ export function DiscoverView({
                 <span className="chip">{t.chain}</span>
               </div>
               <p className="mt-2 text-sm text-bone-dim">{t.name}. {t.blurb}</p>
-              <p className="mt-2 text-xs text-muted">Not a Solana token, so it can&apos;t be voted on or traded on REVIVE.</p>
+              <p className="mt-2 text-xs text-muted">Not a Solana token, so it can&apos;t be voted on or traded on ENCORE.</p>
             </li>
           ))}
         </ul>

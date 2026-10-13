@@ -14,7 +14,7 @@ const CODE_MESSAGES: Record<string, string> = {
 /** Proxies Jupiter Swap V2 /execute with a wallet-signed transaction. */
 export async function POST(req: Request) {
   if (!features.trading)
-    return json({ error: "Trading is not configured on this REVIVE deployment.", code: "trading_offline" }, { status: 503 });
+    return json({ error: "Trading is not configured on this ENCORE deployment.", code: "trading_offline" }, { status: 503 });
   if (!allow(`execute:${clientIp(req) ?? "anon"}`, 20))
     return json({ error: "Too many swap submissions. Wait a moment.", code: "rate_limited" }, { status: 429 });
 

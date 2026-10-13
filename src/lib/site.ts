@@ -1,9 +1,10 @@
 /**
- * Site-wide links and the REVIVE token itself.
- * Paste the contract address (mint) into REVIVE_CA after launch. Leave it ""
- * until then: the site shows "Coming soon" and hides the copy/trade buttons.
+ * Site-wide links and the ENCORE token itself.
+ * - X_URL / X_HANDLE: leave "" to hide every X button on the site.
+ * - ENCORE_CA: paste the contract address (mint) after launch. Leave it ""
+ *   until then: the site shows "Coming soon" and hides the copy/trade links.
  */
-export const X_URL = "https://x.com/Revivememesol";
-export const X_HANDLE = "@Revivememesol";
+export const X_URL = "";
+export const X_HANDLE = "";
 
-export const REVIVE_CA = "";
+export const ENCORE_CA = "";

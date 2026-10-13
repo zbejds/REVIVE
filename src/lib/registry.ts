@@ -10,7 +10,7 @@ export const allTokens: RegistryToken[] = (data.tokens as RegistryToken[]).map((
   launchPlatform: t.launchPlatform ?? null,
 }));
 
-/** Tokens in the REVIVE market: Solana, listed, valid mint, no duplicates. */
+/** Tokens in the ENCORE market: Solana, listed, valid mint, no duplicates. */
 export const listedTokens: RegistryToken[] = (() => {
   const seenMint = new Set<string>();
   const out: RegistryToken[] = [];

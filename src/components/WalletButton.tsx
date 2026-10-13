@@ -100,7 +100,7 @@ export function WalletButton() {
             Disconnect
           </button>
           <p className="mt-3 text-[11px] leading-snug text-muted">
-            REVIVE never asks for your seed phrase or private key. Every trade and vote is approved in Phantom.
+            ENCORE never asks for your seed phrase or private key. Every trade and vote is approved in Phantom.
           </p>
         </div>
       )}

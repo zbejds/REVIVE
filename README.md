@@ -1,8 +1,8 @@
-# REVIVE
+# ENCORE
 
 **The memes never die. Revive the legends.**
 
-REVIVE is a Solana memecoin discovery, voting and trading app. Browse forgotten Solana legends, inspect real candlestick charts, vote with a free Phantom signature, and swap through Jupiter, all on one page per token.
+ENCORE is a Solana memecoin discovery, voting and trading app. Browse forgotten Solana legends, inspect real candlestick charts, vote with a free Phantom signature, and swap through Jupiter, all on one page per token.
 
 Built with Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS, TradingView Lightweight Charts v5, Solana wallet-adapter (Phantom), Jupiter Swap API v2 and PostgreSQL.
 
@@ -18,7 +18,7 @@ Built with Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS, TradingV
 | Community voting + vote-ranked leaderboard | `DATABASE_URL` | Voting shows as **offline**; leaderboard falls back to archive order |
 | Swaps | `JUPITER_API_KEY` | Trade panel shows **trading not configured** |
 
-REVIVE never fills a missing service with invented numbers. Offline features say so in a banner and on `/rules#setup`.
+ENCORE never fills a missing service with invented numbers. Offline features say so in a banner and on `/rules#setup`.
 
 ## Quick start (local)
 
@@ -77,7 +77,7 @@ Ranking uses vote counts only, never price.
 
 ### Trading
 1. Typing an amount fetches a quote (`/order` without `taker`, no transaction built).
-2. **Review** shows estimated output, minimum received, price impact (estimated against the SOL pool price), slippage, route, Jupiter fee, REVIVE fee and network fees.
+2. **Review** shows estimated output, minimum received, price impact (estimated against the SOL pool price), slippage, route, Jupiter fee, ENCORE fee and network fees.
 3. **Confirm** fetches a fresh order with the wallet as `taker`, re-checks the price (asks you to review again if it moved more than 1 %), **simulates** the transaction, then asks Phantom to sign.
 4. The signed transaction goes to Jupiter `/execute`. The UI polls `getSignatureStatuses` and shows success **only** once the cluster reports `confirmed`/`finalized`; on-chain failures and timeouts show explorer links instead.
 
@@ -99,12 +99,12 @@ src/components/           UI: PriceChart, TradePanel, VoteButton, Leaderboard, .
 
 - Rate limiting and caching are per server instance (in-memory). At larger scale, move `src/lib/cache.ts` to Redis/Vercel KV.
 - The RPC proxy allows only read, simulation and status methods; transactions are sent by Jupiter `/execute`.
-- DexScreener doesn't expose unique trader counts, so REVIVE shows buy/sell counts instead.
+- DexScreener doesn't expose unique trader counts, so ENCORE shows buy/sell counts instead.
 - Launch platforms in the registry are set only where well documented; others display "Unverified".
 - Memecoins are extremely risky. Nothing in this app is financial advice.
 
 ## Artwork & brand
 
 - `public/art/` holds the abstract artwork generated with Higgsfield (hero, discover banner, aurora background, token-page sphere), compressed to WebP.
-- `src/app/icon.svg` is the favicon (the REVIVE mark: a coin whose flatline breaks out as a pulse); `src/app/apple-icon.png` and `src/app/opengraph-image.jpg` are picked up automatically by Next.js.
+- `src/app/icon.svg` is the favicon (the ENCORE mark: a coin whose flatline breaks out as a pulse); `src/app/apple-icon.png` and `src/app/opengraph-image.jpg` are picked up automatically by Next.js.
 - Swap any image by replacing the file with one of the same name.

@@ -11,8 +11,8 @@ const body = Instrument_Sans({ subsets: ["latin"], weight: ["400", "500", "600",
 const mono = JetBrains_Mono({ subsets: ["latin"], weight: ["400", "500", "700"], variable: "--font-mono" });
 
 export const metadata: Metadata = {
-  title: { default: "REVIVE — The memes never die", template: "%s · REVIVE" },
-  description: "Discover forgotten Solana memecoins, vote for the legends you want back, inspect live charts and trade with Phantom.",
+  title: { default: "ENCORE — Every legend gets an encore", template: "%s · ENCORE" },
+  description: "Call forgotten Solana memecoins back on stage: vote for the legends you want back, inspect live charts and trade with Phantom.",
 };
 
 export const viewport: Viewport = {

@@ -17,7 +17,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-white/[0.06] bg-ink/55 backdrop-blur-xl" style={{ paddingTop: "env(safe-area-inset-top, 0px)" }}>
       <div className="mx-auto flex h-14 max-w-[1440px] items-center gap-4 px-4 sm:px-6">
-        <Link href="/" className="shrink-0" aria-label="REVIVE home">
+        <Link href="/" className="shrink-0" aria-label="ENCORE home">
           <Logo />
         </Link>
         <nav className="hidden items-center gap-1 md:flex" aria-label="Main">

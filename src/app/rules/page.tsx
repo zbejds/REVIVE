@@ -20,10 +20,10 @@ export default function RulesPage() {
           </h1>
         </div>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/art/sphere.webp" alt="" className="hidden aspect-square h-40 w-auto rounded-[28px] object-cover sm:block" />
+        <img src="/art/sphere.webp" alt="" className="brand-tint hidden aspect-square h-40 w-auto rounded-[28px] object-cover sm:block" />
       </div>
       <p className="mt-3 text-[15px] leading-relaxed text-bone-dim">
-        How REVIVE counts votes, what a trade costs, and where every number comes from.
+        How ENCORE counts votes, what a trade costs, and where every number comes from.
       </p>
 
       <div className="mt-10 space-y-10 text-[15px] leading-relaxed text-bone-dim">
@@ -48,7 +48,7 @@ export default function RulesPage() {
         <section className="space-y-3">
           <H id="listing">What gets listed</H>
           <p>
-            Every REVIVE token is identified by its Solana mint address, never by name or ticker. Copycat tokens with the same ticker don&apos;t resolve to a REVIVE page, and duplicates are rejected. Tokens from other chains appear only in the archive, labeled with their chain. Tokens that migrated to a new mint stay in the vault until the new mint is verified.
+            Every ENCORE token is identified by its Solana mint address, never by name or ticker. Copycat tokens with the same ticker don&apos;t resolve to a ENCORE page, and duplicates are rejected. Tokens from other chains appear only in the archive, labeled with their chain. Tokens that migrated to a new mint stay in the vault until the new mint is verified.
           </p>
         </section>
 
@@ -57,15 +57,15 @@ export default function RulesPage() {
           <ul className="list-disc space-y-1.5 pl-5">
             <li>Swaps are routed by Jupiter. Jupiter may charge a routing fee, shown in each quote before you confirm.</li>
             <li>
-              REVIVE platform fee:{" "}
+              ENCORE platform fee:{" "}
               <strong className="text-bone">{platformFeeBps ? `${(platformFeeBps / 100).toFixed(2)}% per swap` : "none"}</strong>.
             </li>
             <li>Solana network fees (base fee plus priority fee) are paid in SOL. Buying a token you&apos;ve never held can add a one-time refundable token account deposit.</li>
-            <li>Each trade is simulated before Phantom asks you to sign. REVIVE shows a trade as successful only after the network confirms it.</li>
+            <li>Each trade is simulated before Phantom asks you to sign. ENCORE shows a trade as successful only after the network confirms it.</li>
             <li>Tokens still on a pump.fun bonding curve can be traded only when Jupiter returns a valid route.</li>
           </ul>
           <p className="rounded-lg border border-line bg-panel p-3 text-sm">
-            REVIVE never asks for your seed phrase or private key. Connecting your wallet only shares your public address; every trade and vote needs your separate approval in Phantom.
+            ENCORE never asks for your seed phrase or private key. Connecting your wallet only shares your public address; every trade and vote needs your separate approval in Phantom.
           </p>
         </section>
 
@@ -73,16 +73,16 @@ export default function RulesPage() {
           <H id="data">Data sources</H>
           <ul className="list-disc space-y-1.5 pl-5">
             <li><strong className="text-bone">DexScreener</strong>: prices, market cap, FDV, liquidity, volume, trade counts, pools and pool creation dates.</li>
-            <li><strong className="text-bone">{env.birdeyeApiKey ? "Birdeye" : "GeckoTerminal"}</strong>: historical OHLCV candles for charts. Charts start at the earliest candle the provider has; REVIVE never fills gaps with invented data.</li>
+            <li><strong className="text-bone">{env.birdeyeApiKey ? "Birdeye" : "GeckoTerminal"}</strong>: historical OHLCV candles for charts. Charts start at the earliest candle the provider has; ENCORE never fills gaps with invented data.</li>
             <li><strong className="text-bone">Jupiter</strong>: quotes, routing and transaction landing.</li>
             <li><strong className="text-bone">Solana RPC</strong>: balances, simulations and confirmations.</li>
           </ul>
-          <p>If a provider is unavailable, REVIVE shows the last saved snapshot with its timestamp and labels it as not live.</p>
+          <p>If a provider is unavailable, ENCORE shows the last saved snapshot with its timestamp and labels it as not live.</p>
         </section>
 
         <section className="space-y-3">
           <H id="risk">Risk</H>
-          <p>Memecoins are extremely volatile, often illiquid, and can lose all their value. Votes measure community interest, not quality or safety. Nothing on REVIVE is financial advice.</p>
+          <p>Memecoins are extremely volatile, often illiquid, and can lose all their value. Votes measure community interest, not quality or safety. Nothing on ENCORE is financial advice.</p>
         </section>
 
         <section className="space-y-3">
