@@ -67,14 +67,24 @@ export function RevivePill({ compact = false }: { compact?: boolean }) {
             {copied ? "Copied ✓" : "Copy"}
           </button>
           {!compact && (
-            <a
-              href={`https://dexscreener.com/solana/${ca}`}
-              target="_blank"
-              rel="noreferrer"
-              className="text-[11px] text-pulse hover:underline"
-            >
-              Chart ↗
-            </a>
+            <>
+              <a
+                href={`https://pump.fun/coin/${ca}`}
+                target="_blank"
+                rel="noreferrer"
+                className="text-[11px] text-ember hover:underline"
+              >
+                pump.fun ↗
+              </a>
+              <a
+                href={`https://dexscreener.com/solana/${ca}`}
+                target="_blank"
+                rel="noreferrer"
+                className="text-[11px] text-pulse hover:underline"
+              >
+                Chart ↗
+              </a>
+            </>
           )}
         </>
       ) : (

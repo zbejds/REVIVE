@@ -6,4 +6,4 @@
 export const X_URL = "https://x.com/Revivememesol";
 export const X_HANDLE = "@Revivememesol";
 
-export const REVIVE_CA = "";
+export const REVIVE_CA = "F2faDP1mMAgRCrx9CJP6C4daM268J3SniVv5x5Xopump";
