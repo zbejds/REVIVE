@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Leaderboard } from "@/components/Leaderboard";
+import { RevivePill, XIcon } from "@/components/Social";
 import { listedTokens } from "@/lib/registry";
+import { X_URL } from "@/lib/site";
 
 export default function Home() {
   return (
@@ -44,6 +46,12 @@ export default function Home() {
               <Link href="/rules" className="btn-ghost px-6 py-3">
                 How voting works
               </Link>
+              <a href={X_URL} target="_blank" rel="noreferrer" className="btn-ghost px-5 py-3" aria-label="Follow REVIVE on X">
+                <XIcon /> Follow
+              </a>
+            </div>
+            <div className="mt-5">
+              <RevivePill />
             </div>
           </div>
 

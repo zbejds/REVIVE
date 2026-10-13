@@ -22,10 +22,51 @@ const WINDOW_SQL: Record<VoteWindow, string> = {
   all: "",
 };
 
+/**
+ * Mirror data/registry.json into the tokens table once per server instance, so
+ * coins added or delisted in the registry need no manual database step.
+ */
+let registrySynced: Promise<void> | null = null;
+export function syncRegistry(): Promise<void> {
+  const pool = db();
+  if (!pool) return Promise.resolve();
+  if (!registrySynced) {
+    registrySynced = pool
+      .query(
+        `INSERT INTO tokens (mint, symbol, name, chain, listed, launch_platform, era, legend_rank)
+         SELECT * FROM unnest($1::text[], $2::text[], $3::text[], $4::text[], $5::bool[], $6::text[], $7::text[], $8::int[])
+         ON CONFLICT (mint) DO UPDATE SET symbol = EXCLUDED.symbol, name = EXCLUDED.name, listed = EXCLUDED.listed,
+           launch_platform = EXCLUDED.launch_platform, era = EXCLUDED.era, legend_rank = EXCLUDED.legend_rank, updated_at = now()`,
+        [
+          listedTokens.map((t) => t.mint),
+          listedTokens.map((t) => t.symbol),
+          listedTokens.map((t) => t.name),
+          listedTokens.map((t) => t.chain),
+          listedTokens.map(() => true),
+          listedTokens.map((t) => t.launchPlatform),
+          listedTokens.map((t) => t.era),
+          listedTokens.map((t) => t.legendRank),
+        ],
+      )
+      .then(() =>
+        pool.query(`UPDATE tokens SET listed = FALSE, updated_at = now() WHERE listed AND NOT (mint = ANY($1))`, [
+          listedTokens.map((t) => t.mint),
+        ]),
+      )
+      .then(() => undefined)
+      .catch((e) => {
+        registrySynced = null; // retry on the next request
+        console.warn("[votes] registry sync failed:", (e as Error).message);
+      });
+  }
+  return registrySynced ?? Promise.resolve();
+}
+
 /** Vote counts and REVIVE rank for every listed token. Ranking uses votes only. */
 export async function getVoteTable(window: VoteWindow): Promise<Map<string, VoteStats> | null> {
   const pool = db();
   if (!pool) return null;
+  await syncRegistry();
   const { rows } = await pool.query<{ mint: string; votes: string; last_vote: Date }>(
     `SELECT mint, count(*)::text AS votes, max(created_at) AS last_vote
        FROM votes WHERE mint = ANY($1) ${WINDOW_SQL[window]}
@@ -121,6 +162,14 @@ export async function issueChallenge(wallet: string, mint: string) {
     "",
     "Signing this message is free. It does not send a transaction or grant any permission.",
   ].join("\n");
+
+  // Coins added to data/registry.json after the database was set up get their
+  // row created on first vote, so votes never fail on the foreign key.
+  await pool.query(
+    `INSERT INTO tokens (mint, symbol, name, chain, listed, launch_platform, era, categories, legend_rank)
+     VALUES ($1,$2,$3,$4,TRUE,$5,$6,$7,$8) ON CONFLICT (mint) DO NOTHING`,
+    [token.mint, token.symbol, token.name, token.chain, token.launchPlatform, token.era, token.categories, token.legendRank],
+  );
 
   await pool.query(
     `INSERT INTO vote_nonces (nonce, wallet, mint, message, issued_at, expires_at) VALUES ($1,$2,$3,$4,$5,$6)`,

@@ -1,15 +1,42 @@
 {
   "_about": "REVIVE token registry. Every listed token is keyed by its Solana mint address. 'listed: true' tokens appear in the REVIVE market; everything else is shown in the archive with the reason it is not tradable here. launchPlatform is only set where it is well documented; null renders as 'Unverified'. Market data, token age and pools always come from live providers, never from this file.",
   "categories": [
-    { "id": "early", "label": "Early Solana Meme Coins" },
-    { "id": "pumpfun", "label": "pump.fun Legends" },
-    { "id": "raydium", "label": "Raydium Classics" },
-    { "id": "viral", "label": "Former Viral Coins" },
-    { "id": "favorites", "label": "Forgotten Community Favorites" },
-    { "id": "cat", "label": "Cat Memecoins" },
-    { "id": "dog", "label": "Dog Memecoins" },
-    { "id": "ai", "label": "AI & Internet Culture" },
-    { "id": "underdogs", "label": "Underdogs Worth Discovering" }
+    {
+      "id": "early",
+      "label": "Early Solana Meme Coins"
+    },
+    {
+      "id": "pumpfun",
+      "label": "pump.fun Legends"
+    },
+    {
+      "id": "raydium",
+      "label": "Raydium Classics"
+    },
+    {
+      "id": "viral",
+      "label": "Former Viral Coins"
+    },
+    {
+      "id": "favorites",
+      "label": "Forgotten Community Favorites"
+    },
+    {
+      "id": "cat",
+      "label": "Cat Memecoins"
+    },
+    {
+      "id": "dog",
+      "label": "Dog Memecoins"
+    },
+    {
+      "id": "ai",
+      "label": "AI & Internet Culture"
+    },
+    {
+      "id": "underdogs",
+      "label": "Underdogs Worth Discovering"
+    }
   ],
   "tokens": [
     {
@@ -20,21 +47,14 @@
       "listed": true,
       "launchPlatform": "Serum / Raydium",
       "era": "2021 · First wave",
-      "categories": ["early", "dog", "favorites", "underdogs"],
+      "categories": [
+        "early",
+        "dog",
+        "favorites",
+        "underdogs"
+      ],
       "legendRank": 6,
       "blurb": "One of the first Solana dog coins, billed as the chain's ambassador long before memecoins were a Solana staple."
-    },
-    {
-      "mint": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pB263",
-      "symbol": "BONK",
-      "name": "Bonk",
-      "chain": "solana",
-      "listed": true,
-      "launchPlatform": "Community airdrop",
-      "era": "Dec 2022 · Post-FTX revival",
-      "categories": ["early", "dog"],
-      "legendRank": 1,
-      "blurb": "Airdropped to Solana users over Christmas 2022, when the ecosystem was at its lowest. Often credited with reigniting the chain."
     },
     {
       "mint": "EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm",
@@ -44,7 +64,11 @@
       "listed": true,
       "launchPlatform": "Raydium",
       "era": "Late 2023 · Hat season",
-      "categories": ["dog", "raydium", "viral"],
+      "categories": [
+        "dog",
+        "raydium",
+        "viral"
+      ],
       "legendRank": 2,
       "blurb": "A dog in a knitted hat. Became the face of the 2024 Solana meme run, complete with a crowdfunded Las Vegas Sphere campaign."
     },
@@ -56,7 +80,12 @@
       "listed": true,
       "launchPlatform": "Raydium",
       "era": "Late 2023 · Hat season",
-      "categories": ["dog", "raydium", "favorites", "underdogs"],
+      "categories": [
+        "dog",
+        "raydium",
+        "favorites",
+        "underdogs"
+      ],
       "legendRank": 8,
       "blurb": "Named after the dog of Solana co-founder Raj Gokal. One of the loudest coins of the late-2023 cycle before fading from view."
     },
@@ -68,7 +97,11 @@
       "listed": true,
       "launchPlatform": "Raydium",
       "era": "Dec 2023 · Cat rotation",
-      "categories": ["cat", "raydium", "viral"],
+      "categories": [
+        "cat",
+        "raydium",
+        "viral"
+      ],
       "legendRank": 3,
       "blurb": "The open-mouth cat meme as a coin. Led the cat rotation that challenged dog-coin dominance on Solana."
     },
@@ -80,7 +113,11 @@
       "listed": true,
       "launchPlatform": "Raydium",
       "era": "Mar 2024 · Presale mania",
-      "categories": ["ai", "raydium", "viral"],
+      "categories": [
+        "ai",
+        "raydium",
+        "viral"
+      ],
       "legendRank": 5,
       "blurb": "An 'archive of meme culture' coin that reached major exchange listings within days and kicked off the March 2024 presale frenzy."
     },
@@ -92,7 +129,10 @@
       "listed": true,
       "launchPlatform": "Raydium",
       "era": "Mar 2024 · Presale mania",
-      "categories": ["cat", "raydium"],
+      "categories": [
+        "cat",
+        "raydium"
+      ],
       "legendRank": 4,
       "blurb": "A cat holding out in a dog-coin world. Launched with most of its liquidity burned and grew into one of Solana's largest cat coins."
     },
@@ -104,7 +144,11 @@
       "listed": true,
       "launchPlatform": null,
       "era": "Spring 2024 · Cat rotation",
-      "categories": ["cat", "favorites", "underdogs"],
+      "categories": [
+        "cat",
+        "favorites",
+        "underdogs"
+      ],
       "legendRank": 10,
       "blurb": "A lopsided cat drawn in MS Paint style. A community favorite of the spring 2024 cat wave."
     },
@@ -116,7 +160,10 @@
       "listed": true,
       "launchPlatform": null,
       "era": "2024 · Grind era",
-      "categories": ["ai", "favorites"],
+      "categories": [
+        "ai",
+        "favorites"
+      ],
       "legendRank": 9,
       "blurb": "The Gigachad meme turned into a slow-grind community coin, known for holders who refused to sell."
     },
@@ -128,7 +175,10 @@
       "listed": true,
       "launchPlatform": "pump.fun",
       "era": "Summer 2024 · pump.fun summer",
-      "categories": ["pumpfun", "underdogs"],
+      "categories": [
+        "pumpfun",
+        "underdogs"
+      ],
       "legendRank": 13,
       "blurb": "A tiny frog from pump.fun's breakout summer. One of the bonding-curve launches that graduated and kept a following."
     },
@@ -140,7 +190,10 @@
       "listed": true,
       "launchPlatform": null,
       "era": "Sep 2024 · Animal news",
-      "categories": ["viral", "ai"],
+      "categories": [
+        "viral",
+        "ai"
+      ],
       "legendRank": 11,
       "blurb": "Named after the viral baby pygmy hippo from a Thai zoo. Rode the news cycle from cute clip to top-traded token in weeks."
     },
@@ -152,7 +205,11 @@
       "listed": true,
       "launchPlatform": "pump.fun",
       "era": "Oct 2024 · AI agents",
-      "categories": ["pumpfun", "ai", "viral"],
+      "categories": [
+        "pumpfun",
+        "ai",
+        "viral"
+      ],
       "legendRank": 7,
       "blurb": "Launched on pump.fun and championed by the Truth Terminal AI account. Opened the AI-agent meme season."
     },
@@ -164,7 +221,10 @@
       "listed": true,
       "launchPlatform": "pump.fun",
       "era": "Oct 2024 · AI agents",
-      "categories": ["pumpfun", "ai"],
+      "categories": [
+        "pumpfun",
+        "ai"
+      ],
       "legendRank": 12,
       "blurb": "A pump.fun joke coin linked to the Truth Terminal era that went much further than anyone expected."
     },
@@ -176,7 +236,11 @@
       "listed": true,
       "launchPlatform": "pump.fun",
       "era": "Nov 2024 · Animal news",
-      "categories": ["pumpfun", "viral", "ai"],
+      "categories": [
+        "pumpfun",
+        "viral",
+        "ai"
+      ],
       "legendRank": 14,
       "blurb": "Created on pump.fun after Peanut, a pet squirrel, made national headlines. A textbook news-driven meme."
     },
@@ -188,9 +252,137 @@
       "listed": true,
       "launchPlatform": "pump.fun",
       "era": "Nov 2024 · Internet culture",
-      "categories": ["pumpfun", "viral", "favorites", "dog"],
+      "categories": [
+        "pumpfun",
+        "viral",
+        "favorites",
+        "dog"
+      ],
       "legendRank": 15,
       "blurb": "The 'chill guy' dog drawing that took over social feeds in late 2024, minted on pump.fun at the peak of the trend."
+    },
+    {
+      "mint": "5z3EqYQo9HiCEs3R84RCDMu2n7anpDMxRhdK8PSWmrRC",
+      "symbol": "PONKE",
+      "name": "PONKE",
+      "chain": "solana",
+      "listed": true,
+      "launchPlatform": "Raydium",
+      "era": "Dec 2023 · Hat season",
+      "categories": [
+        "raydium",
+        "favorites",
+        "underdogs"
+      ],
+      "legendRank": 17,
+      "blurb": "A chaotic monkey from the late-2023 run that built one of Solana's loudest meme communities."
+    },
+    {
+      "mint": "WENWENvqqNya429ubCdR81ZmD69brwQaaBYY6p3LCpk",
+      "symbol": "WEN",
+      "name": "Wen",
+      "chain": "solana",
+      "listed": true,
+      "launchPlatform": "Community airdrop",
+      "era": "Jan 2024 · Airdrop season",
+      "categories": [
+        "cat",
+        "favorites"
+      ],
+      "legendRank": 18,
+      "blurb": "Named after crypto's favorite question. A community airdrop built around a cat poem, launched at the start of the 2024 airdrop wave."
+    },
+    {
+      "mint": "7EYnhQoR9YM3N7UoaKRoA44Uy8JeaZV3qyouov87awMs",
+      "symbol": "SILLY",
+      "name": "Silly Dragon",
+      "chain": "solana",
+      "listed": true,
+      "launchPlatform": "Raydium",
+      "era": "Dec 2023 · Hat season",
+      "categories": [
+        "raydium",
+        "underdogs",
+        "favorites"
+      ],
+      "legendRank": 19,
+      "blurb": "A goofy dragon from the December 2023 rush, one of the early names in that season's meme wave."
+    },
+    {
+      "mint": "5LafQUrVco6o7KMz42eqVEJ9LW31StPyGjeeu5sKoMtA",
+      "symbol": "MUMU",
+      "name": "Mumu the Bull",
+      "chain": "solana",
+      "listed": true,
+      "launchPlatform": "Raydium",
+      "era": "Mar 2024 · Presale mania",
+      "categories": [
+        "raydium",
+        "underdogs"
+      ],
+      "legendRank": 20,
+      "blurb": "A cartoon bull built as the market's mascot. Grew fast in spring 2024, then went quiet."
+    },
+    {
+      "mint": "6D7NaB2xsLd7cauWu1wKk6KBsJohJmP2qZH9GEfVi5Ui",
+      "symbol": "SC",
+      "name": "Shark Cat",
+      "chain": "solana",
+      "listed": true,
+      "launchPlatform": "Raydium",
+      "era": "Mar 2024 · Cat rotation",
+      "categories": [
+        "cat",
+        "raydium",
+        "viral"
+      ],
+      "legendRank": 21,
+      "blurb": "A cat wearing a shark costume. One of the cat-rotation coins of spring 2024."
+    },
+    {
+      "mint": "3S8qX1MsMqRbiwKg2cQyx7nis1oHMgaCuc9c4VfvVdPN",
+      "symbol": "MOTHER",
+      "name": "MOTHER IGGY",
+      "chain": "solana",
+      "listed": true,
+      "launchPlatform": "Raydium",
+      "era": "May 2024 · Celebrity coins",
+      "categories": [
+        "viral",
+        "raydium"
+      ],
+      "legendRank": 22,
+      "blurb": "The celebrity coin of the May 2024 wave, tied to a well-known musician."
+    },
+    {
+      "mint": "8x5VqbHA8D7NkD52uNuS5nnt3PwA8pLD34ymskeSo2Wn",
+      "symbol": "ZEREBRO",
+      "name": "zerebro",
+      "chain": "solana",
+      "listed": true,
+      "launchPlatform": "Raydium",
+      "era": "Oct 2024 · AI agents",
+      "categories": [
+        "ai",
+        "viral"
+      ],
+      "legendRank": 23,
+      "blurb": "An autonomous AI-artist token from the late-2024 AI-agent season."
+    },
+    {
+      "mint": "Dz9mQ9NzkBcCsuGPFJ3r1bS4wgqKMHBPiVuniW8Mbonk",
+      "symbol": "USELESS",
+      "name": "USELESS COIN",
+      "chain": "solana",
+      "listed": true,
+      "launchPlatform": "bonk.fun",
+      "era": "May 2025 · Launchpad wars",
+      "categories": [
+        "viral",
+        "favorites"
+      ],
+      "legendRank": 24,
+      "blurb": "Proudly does nothing. A 2025 launchpad meme that leaned into having no utility at all."
     },
     {
       "mint": "7BgBvyjrZX1YKz4oh9mjb8ZScatkkwb8DzFx7LoiVkM3",
@@ -201,16 +393,39 @@
       "status": "migrated",
       "launchPlatform": "Raydium",
       "era": "Mar 2024 · Presale mania",
-      "categories": ["viral", "favorites"],
+      "categories": [
+        "viral",
+        "favorites"
+      ],
       "legendRank": 16,
       "blurb": "Famous for a launch-day mistake that burned its own presale and LP tokens.",
       "notListedReason": "SLERF migrated to a new token in September 2025. This is the old mint. REVIVE has not yet verified the new mint, so it is not listed for voting or trading."
     }
   ],
   "otherChains": [
-    { "symbol": "DOGE", "name": "Dogecoin", "chain": "Dogecoin", "blurb": "The original memecoin (2013). Runs on its own blockchain." },
-    { "symbol": "SHIB", "name": "Shiba Inu", "chain": "Ethereum", "blurb": "ERC-20 dog coin from 2020." },
-    { "symbol": "PEPE", "name": "Pepe", "chain": "Ethereum", "blurb": "ERC-20 frog coin from the 2023 Ethereum meme wave." },
-    { "symbol": "BRETT", "name": "Brett", "chain": "Base", "blurb": "Base's flagship meme from 2024." }
+    {
+      "symbol": "DOGE",
+      "name": "Dogecoin",
+      "chain": "Dogecoin",
+      "blurb": "The original memecoin (2013). Runs on its own blockchain."
+    },
+    {
+      "symbol": "SHIB",
+      "name": "Shiba Inu",
+      "chain": "Ethereum",
+      "blurb": "ERC-20 dog coin from 2020."
+    },
+    {
+      "symbol": "PEPE",
+      "name": "Pepe",
+      "chain": "Ethereum",
+      "blurb": "ERC-20 frog coin from the 2023 Ethereum meme wave."
+    },
+    {
+      "symbol": "BRETT",
+      "name": "Brett",
+      "chain": "Base",
+      "blurb": "Base's flagship meme from 2024."
+    }
   ]
 }

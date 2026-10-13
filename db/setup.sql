@@ -1,6 +1,6 @@
 -- REVIVE one-step database setup.
 -- Paste this whole file into your database's SQL editor (e.g. Neon → SQL Editor) and run it.
--- Safe to run again. Equivalent to `npm run db:migrate`.
+-- Safe to run again. Equivalent to `npm run db:migrate`. The app also syncs the registry itself.
 
 -- REVIVE database schema (PostgreSQL 14+). Idempotent: safe to run repeatedly.
 
@@ -72,7 +72,6 @@ CREATE INDEX IF NOT EXISTS votes_time_idx ON votes (created_at DESC);
 
 INSERT INTO tokens (mint, symbol, name, chain, listed, status, launch_platform, era, categories, legend_rank) VALUES
   ('7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU','SAMO','Samoyedcoin','solana',TRUE,NULL,'Serum / Raydium','2021 · First wave',ARRAY['early','dog','favorites','underdogs']::text[],6),
-  ('DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pB263','BONK','Bonk','solana',TRUE,NULL,'Community airdrop','Dec 2022 · Post-FTX revival',ARRAY['early','dog']::text[],1),
   ('EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm','WIF','dogwifhat','solana',TRUE,NULL,'Raydium','Late 2023 · Hat season',ARRAY['dog','raydium','viral']::text[],2),
   ('HhJpBhRRn4g56VsyLuT8DL5Bv31HkXqsrahTTUCZeZg4','MYRO','Myro','solana',TRUE,NULL,'Raydium','Late 2023 · Hat season',ARRAY['dog','raydium','favorites','underdogs']::text[],8),
   ('7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr','POPCAT','POPCAT','solana',TRUE,NULL,'Raydium','Dec 2023 · Cat rotation',ARRAY['cat','raydium','viral']::text[],3),
@@ -86,7 +85,18 @@ INSERT INTO tokens (mint, symbol, name, chain, listed, status, launch_platform, 
   ('9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump','Fartcoin','Fartcoin','solana',TRUE,NULL,'pump.fun','Oct 2024 · AI agents',ARRAY['pumpfun','ai']::text[],12),
   ('2qEHjDLDLbuBgRYvsxhc5D6uDWAivNFZGan56P1tpump','PNUT','Peanut the Squirrel','solana',TRUE,NULL,'pump.fun','Nov 2024 · Animal news',ARRAY['pumpfun','viral','ai']::text[],14),
   ('Df6yfrKC8kZE3KNkrHERKzAetSxbrWeniQfyJY4Jpump','CHILLGUY','Just a chill guy','solana',TRUE,NULL,'pump.fun','Nov 2024 · Internet culture',ARRAY['pumpfun','viral','favorites','dog']::text[],15),
+  ('5z3EqYQo9HiCEs3R84RCDMu2n7anpDMxRhdK8PSWmrRC','PONKE','PONKE','solana',TRUE,NULL,'Raydium','Dec 2023 · Hat season',ARRAY['raydium','favorites','underdogs']::text[],17),
+  ('WENWENvqqNya429ubCdR81ZmD69brwQaaBYY6p3LCpk','WEN','Wen','solana',TRUE,NULL,'Community airdrop','Jan 2024 · Airdrop season',ARRAY['cat','favorites']::text[],18),
+  ('7EYnhQoR9YM3N7UoaKRoA44Uy8JeaZV3qyouov87awMs','SILLY','Silly Dragon','solana',TRUE,NULL,'Raydium','Dec 2023 · Hat season',ARRAY['raydium','underdogs','favorites']::text[],19),
+  ('5LafQUrVco6o7KMz42eqVEJ9LW31StPyGjeeu5sKoMtA','MUMU','Mumu the Bull','solana',TRUE,NULL,'Raydium','Mar 2024 · Presale mania',ARRAY['raydium','underdogs']::text[],20),
+  ('6D7NaB2xsLd7cauWu1wKk6KBsJohJmP2qZH9GEfVi5Ui','SC','Shark Cat','solana',TRUE,NULL,'Raydium','Mar 2024 · Cat rotation',ARRAY['cat','raydium','viral']::text[],21),
+  ('3S8qX1MsMqRbiwKg2cQyx7nis1oHMgaCuc9c4VfvVdPN','MOTHER','MOTHER IGGY','solana',TRUE,NULL,'Raydium','May 2024 · Celebrity coins',ARRAY['viral','raydium']::text[],22),
+  ('8x5VqbHA8D7NkD52uNuS5nnt3PwA8pLD34ymskeSo2Wn','ZEREBRO','zerebro','solana',TRUE,NULL,'Raydium','Oct 2024 · AI agents',ARRAY['ai','viral']::text[],23),
+  ('Dz9mQ9NzkBcCsuGPFJ3r1bS4wgqKMHBPiVuniW8Mbonk','USELESS','USELESS COIN','solana',TRUE,NULL,'bonk.fun','May 2025 · Launchpad wars',ARRAY['viral','favorites']::text[],24),
   ('7BgBvyjrZX1YKz4oh9mjb8ZScatkkwb8DzFx7LoiVkM3','SLERF','SLERF (pre-migration mint)','solana',FALSE,'migrated','Raydium','Mar 2024 · Presale mania',ARRAY['viral','favorites']::text[],16)
 ON CONFLICT (mint) DO UPDATE SET symbol = EXCLUDED.symbol, name = EXCLUDED.name, chain = EXCLUDED.chain,
   listed = EXCLUDED.listed, status = EXCLUDED.status, launch_platform = EXCLUDED.launch_platform,
   era = EXCLUDED.era, categories = EXCLUDED.categories, legend_rank = EXCLUDED.legend_rank, updated_at = now();
+
+-- Delist anything no longer in the registry (e.g. BONK).
+UPDATE tokens SET listed = FALSE WHERE mint NOT IN ('7xKXtg2CW87d97TXJSDpbD5jBkheTqA83TZRuJosgAsU','EKpQGSJtjMFqKZ9KQanSqYXRcF8fBopzLHYxdM65zcjm','HhJpBhRRn4g56VsyLuT8DL5Bv31HkXqsrahTTUCZeZg4','7GCihgDB8fe6KNjn2MYtkzZcRjQy3t9GHdC8uHYmW2hr','ukHH6c7mMyiWCf1b9pnWe25TSpkDDt3H5pQZgZ74J82','MEW1gQWJ3nEXg2qgERiKu7FAFj79PHvQVREQUzScPP5','5mbK36SZ7J19An8jFochhQS4of8g6BwUjbeCSxBSoWdp','63LfDmNb3MQ8mw9MtZ2To9bEA2M71kZUUGq5tiJxcqj9','A8C3xuqscfmyLrte3VmTqrAq8kgMASius9AFNANwpump','ED5nyyWEzpPPiWimP8vYm7sD7TD3LAt3Q3gRTWHzPJBY','CzLSujWBLFsSjncfkh59rUFqvafWcY5tzedWJSuypump','9BB6NFEcjBCtnNLFko2FqVQBq8HHM13kCyYcdQbgpump','2qEHjDLDLbuBgRYvsxhc5D6uDWAivNFZGan56P1tpump','Df6yfrKC8kZE3KNkrHERKzAetSxbrWeniQfyJY4Jpump','5z3EqYQo9HiCEs3R84RCDMu2n7anpDMxRhdK8PSWmrRC','WENWENvqqNya429ubCdR81ZmD69brwQaaBYY6p3LCpk','7EYnhQoR9YM3N7UoaKRoA44Uy8JeaZV3qyouov87awMs','5LafQUrVco6o7KMz42eqVEJ9LW31StPyGjeeu5sKoMtA','6D7NaB2xsLd7cauWu1wKk6KBsJohJmP2qZH9GEfVi5Ui','3S8qX1MsMqRbiwKg2cQyx7nis1oHMgaCuc9c4VfvVdPN','8x5VqbHA8D7NkD52uNuS5nnt3PwA8pLD34ymskeSo2Wn','Dz9mQ9NzkBcCsuGPFJ3r1bS4wgqKMHBPiVuniW8Mbonk');

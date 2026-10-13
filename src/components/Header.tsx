@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Logo } from "./Logo";
+import { XButton } from "./Social";
 import { WalletButton } from "./WalletButton";
 
 const NAV = [
@@ -33,7 +34,8 @@ export function Header() {
             );
           })}
         </nav>
-        <div className="ml-auto">
+        <div className="ml-auto flex items-center gap-2">
+          <XButton />
           <WalletButton />
         </div>
       </div>
